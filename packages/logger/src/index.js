@@ -9,8 +9,8 @@ const prefixes = {
 /**
  * Prints a nicely formatted message to the console.
  *
- * @param {*} prefix the log entry prefix
- * @param {*} message the log entry message
+ * @param {String} prefix - the log entry prefix
+ * @param {String} message - the log entry message
  */
 function printMessage(prefix, message) {
   console.log(`Lyra ${prefix} ${message}`);
