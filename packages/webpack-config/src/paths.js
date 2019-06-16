@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import mkdirp from 'mkdirp';
 import logger from '@lyra/logger';
+import { copyFromTemplate } from './templateHelper';
 
 // Ensure symlinks are resolved
 const appDirectory = fs.realpathSync(process.cwd());
@@ -29,14 +30,15 @@ export default paths;
 /**
  * Checks if `dirPath` exists and is a directory.
  *
- * @param {*} dirPath - the path to check
- * @param {*} createIfNot - whether to create the dir if not found
+ * @param {String} dirPath - the path to check
+ * @param {Boolean} createIfNot - whether to create the dir if not found
  * @return whether `dirPath` exists and is a directory.
  */
 function checkDirectoryExists(dirPath, createIfNot) {
   if (!fs.existsSync(dirPath)) {
     if (createIfNot) {
-      return mkdirp.sync(dirPath);
+      mkdirp.sync(dirPath);
+      return true;
     }
 
     logger.error(`Lyra could not find the ${dirPath} directory`);
@@ -58,15 +60,16 @@ function checkDirectoryExists(dirPath, createIfNot) {
  * is `true`, we attempt to resolve `@lyra/template/src/${filePath}`
  * and copy the file to `filePath`.
  *
- * @param {*} filePath - the path to check
- * @param {*} copyFromTemplate - whether to copy the file from Lyra's template
+ * @param {String} filePath - the path to check
+ * @param {Boolean} copyIfMissing - whether to copy the file from Lyra's template
  */
-function checkFileExists(filePath, copyFromTemplate) {
+function checkFileExists(filePath, copyIfMissing) {
   if (!fs.existsSync(filePath)) {
-    if (copyFromTemplate) {
+    if (copyIfMissing) {
       const relativePath = path.relative(filePath, appDirectory);
 
-      // TODO
+      copyFromTemplate(relativePath, filePath);
+      return true;
     }
 
     logger.error(`Lyra could not find the ${filePath} file`);
@@ -91,9 +94,11 @@ function checkFileExists(filePath, copyFromTemplate) {
  * created this function will call `process.exit`.
  */
 export function validate() {
-  const exit = [checkDirectoryExists(paths.appStatic, true)].some(
-    result => !result
-  );
+  const exit = [
+    checkDirectoryExists(paths.appStatic, true),
+    checkFileExists(paths.appEntry, true),
+    checkFileExists(paths.appHtmlTemplate, true)
+  ].some(result => !result);
 
   if (exit) {
     process.exit(1);
