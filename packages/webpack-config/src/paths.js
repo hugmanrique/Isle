@@ -14,6 +14,7 @@ const appDirectory = fs.realpathSync(process.cwd());
  */
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
+// Main app paths
 const paths = {
   // TODO Make these paths configurable
   appBuild: resolveApp('dist'),
@@ -45,6 +46,34 @@ function checkDirectoryExists(dirPath, createIfNot) {
   if (!fs.lstatSync(dirPath).isDirectory()) {
     logger.error(
       `The ${dirPath} path is not a directory. Perhaps you created a file instead?`
+    );
+    return false;
+  }
+
+  return true;
+}
+
+/**
+ * Checks if `filePath` exists. If it does not and `loadFromTemplate`
+ * is `true`, we attempt to resolve `@lyra/template/src/${filePath}`
+ * and copy the file to `filePath`.
+ *
+ * @param {*} filePath - the path to check
+ * @param {*} copyFromTemplate - whether to copy the file from Lyra's template
+ */
+function checkFileExists(filePath, copyFromTemplate) {
+  if (!fs.existsSync(filePath)) {
+    if (copyFromTemplate) {
+      // TODO
+    }
+
+    logger.error(`Lyra could not find the ${filePath} file`);
+    return false;
+  }
+
+  if (!fs.lstatSync(filePath).isFile()) {
+    logger.error(
+      `The ${filePath} path is not a file. Perhaps you created a directory instead?`
     );
     return false;
   }
