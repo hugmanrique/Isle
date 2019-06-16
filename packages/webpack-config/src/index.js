@@ -1,3 +1,5 @@
+import CleanWebpackPlugin from 'clean-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import logger from '@lyra/logger';
 
 import paths from './paths';
@@ -12,6 +14,8 @@ export default function LyraConfig({ mode = fallbackMode } = {}) {
   const isProduction = mode === 'production';
 
   logger.info(`Running in ${mode} mode`);
+
+  paths.validate();
 
   return {
     mode,
@@ -32,6 +36,13 @@ export default function LyraConfig({ mode = fallbackMode } = {}) {
     module: {
       rules: createModuleRules({ isProduction })
     },
+    plugins: [
+      // rim-raf the output dir before bundling
+      new CleanWebpackPlugin([paths.appBuild]),
+      new HtmlWebpackPlugin({
+        template: paths.appHtmlTemplate
+      })
+    ],
     devServer: createDevServerConfig({
       isProduction,
       contentBase: paths.appStatic,
