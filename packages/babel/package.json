@@ -1,0 +1,29 @@
+{
+  "name": "@lyra/babel-preset",
+  "version": "0.0.0",
+  "description": "Lyra Babel config",
+  "author": {
+    "name": "Hugo Manrique",
+    "url": "https://hugmanrique.me",
+    "email": "npm@hugmanrique.me"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/hugmanrique/Lyra",
+  "keywords": [
+    "lyra",
+    "babel"
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24"
+  }
+}
