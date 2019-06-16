@@ -1,6 +1,9 @@
 import logger from '@isle/logger';
 import { startBuild as startWebpackCompilation } from './webpack';
 
+/**
+ * Builds the Isle app.
+ */
 export default function startBuild() {
   logger.info('Starting webpack compilation...');
 
