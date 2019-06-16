@@ -22,6 +22,7 @@ const paths = {
   appStatic: resolveApp('static'),
   appEntry: resolveApp('src/index.js'),
   appHtmlTemplate: resolveApp('src/template.html'),
+  webpackConfig: resolveApp('webpack.config.js'),
   publicPath: '/'
 };
 

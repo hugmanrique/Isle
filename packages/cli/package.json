@@ -1,0 +1,42 @@
+{
+  "name": "@isle/cli",
+  "version": "0.1.2",
+  "description": "Isle Command-line interface",
+  "author": {
+    "name": "Hugo Manrique",
+    "url": "https://hugmanrique.me",
+    "email": "npm@hugmanrique.me"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/hugmanrique/Isle",
+  "keywords": [
+    "isle",
+    "webpack"
+  ],
+  "main": "dist/index.js",
+  "bin": {
+    "isle": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c --environment NODE_ENV:production",
+    "prepublish": "npm run build"
+  },
+  "peerDependencies": {
+    "webpack": "^4.34.0"
+  },
+  "dependencies": {
+    "@isle/logger": "^0.1.2",
+    "@isle/webpack-config": "^0.1.2",
+    "yargs": "^13.2.4"
+  },
+  "devDependencies": {
+    "rollup": "^1.15.6"
+  }
+}

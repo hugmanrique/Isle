@@ -6,10 +6,18 @@ import paths, { validate as validatePaths } from './paths';
 import createOptimizationConfig from './optimization';
 import createModuleRules from './rules';
 import createDevServerConfig from './devServer';
+import getWebpackConfig from './configRetriever';
 
 const fallbackMode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
+/**
+ * Returns Isle's webpack config. Depending on the passed `mode`,
+ * Isle applies different optimizations and plugins.
+ *
+ * @param {Object} config - Isle's config
+ * @param {String} config.mode - webpack mode (`production` or `development`)
+ */
 export default function IsleConfig({ mode = fallbackMode } = {}) {
   const isProduction = mode === 'production';
 
@@ -50,3 +58,12 @@ export default function IsleConfig({ mode = fallbackMode } = {}) {
     })
   };
 }
+
+/**
+ * Returns a webpack config object. If the app contains a `webpack.config.js`,
+ * we require this file and return the default export. Otherwise, we return
+ * Isle's default config.
+ *
+ * @see IsleConfig
+ */
+export const __internalGetWebpackConfig = () => getWebpackConfig();
