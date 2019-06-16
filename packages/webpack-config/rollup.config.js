@@ -15,6 +15,7 @@ export default {
     format: 'cjs',
     sourcemap: isProd
   },
+  external: ['fs', 'path'],
   plugins: [
     // Externalize deps and peerDeps
     external({
