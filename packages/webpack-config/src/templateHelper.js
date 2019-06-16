@@ -4,7 +4,7 @@ import logger from '@lyra/logger';
 
 function loadTemplateDir() {
   try {
-    return require.resolve('@lyra/template');
+    return require.resolve('@lyra/template/src');
   } catch (err) {
     logger.error(
       `Lyra could not find the @lyra/template module. Try installing it with "npm i --save-dev @lyra/template"`

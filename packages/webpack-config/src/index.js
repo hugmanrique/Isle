@@ -2,7 +2,7 @@ import CleanWebpackPlugin from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import logger from '@lyra/logger';
 
-import paths from './paths';
+import paths, { validate as validatePaths } from './paths';
 import createOptimizationConfig from './optimization';
 import createModuleRules from './rules';
 import createDevServerConfig from './devServer';
@@ -15,7 +15,7 @@ export default function LyraConfig({ mode = fallbackMode } = {}) {
 
   logger.info(`Running in ${mode} mode`);
 
-  paths.validate();
+  validatePaths();
 
   return {
     mode,
