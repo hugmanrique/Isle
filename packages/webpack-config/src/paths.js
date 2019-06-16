@@ -64,6 +64,8 @@ function checkDirectoryExists(dirPath, createIfNot) {
 function checkFileExists(filePath, copyFromTemplate) {
   if (!fs.existsSync(filePath)) {
     if (copyFromTemplate) {
+      const relativePath = path.relative(filePath, appDirectory);
+
       // TODO
     }
 
