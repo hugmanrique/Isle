@@ -1,13 +1,13 @@
 import fs from 'fs';
 import path from 'path';
-import logger from '@lyra/logger';
+import logger from '@isle/logger';
 
 function loadTemplateDir() {
   try {
-    return require.resolve('@lyra/template/src');
+    return require.resolve('@isle/template/src');
   } catch (err) {
     logger.error(
-      `Lyra could not find the @lyra/template module. Try installing it with "npm i --save-dev @lyra/template"`
+      `Isle could not find the @isle/template module. Try installing it with "npm i --save-dev @isle/template"`
     );
 
     throw err;
@@ -17,8 +17,8 @@ function loadTemplateDir() {
 const templateDir = loadTemplateDir();
 
 /**
- * Resolves the given non-absolute (i.e. relative) path from Lyra's
- * `@lyra/template` module.
+ * Resolves the given non-absolute (i.e. relative) path from Isle's
+ * `@isle/template` module.
  *
  * @param {String} filePath - the module path to resolve
  * @returns {String} the resolved filename.
@@ -44,7 +44,7 @@ export function copyFromTemplate(filePath, destination) {
     fs.copyFileSync(templatePath, destination);
   } catch (err) {
     logger.error(
-      `Lyra could not copy the ${filePath} template file to ${destination}`
+      `Isle could not copy the ${filePath} template file to ${destination}`
     );
 
     throw err;

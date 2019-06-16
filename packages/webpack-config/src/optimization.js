@@ -4,7 +4,7 @@ import TerserPlugin from 'terser-webpack-plugin';
  * Creates a `TerserPlugin` instance for use in production mode.
  *
  * @param {Object} config - base settings
- * @param {Boolean} config.isProduction - whether Lyra is running in production mode
+ * @param {Boolean} config.isProduction - whether Isle is running in production mode
  * @returns {Object} a `TerserPlugin` instance, or null if `isProduction` is `false`.
  * @see {@link https://github.com/webpack-contrib/terser-webpack-plugin}
  */
@@ -50,7 +50,7 @@ function createTerserPluginInstance({ isProduction }) {
  * according to current settings such as the environment.
  *
  * @param {Object} config - optimization settings
- * @param {Boolean} config.isProduction - whether Lyra is running in production mode
+ * @param {Boolean} config.isProduction - whether Isle is running in production mode
  * @returns {Object} a webpack `optimization` config section object
  * @see {@link https://webpack.js.org/configuration/optimization/}
  */

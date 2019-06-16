@@ -1,6 +1,6 @@
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import logger from '@lyra/logger';
+import logger from '@isle/logger';
 
 import paths, { validate as validatePaths } from './paths';
 import createOptimizationConfig from './optimization';
@@ -10,7 +10,7 @@ import createDevServerConfig from './devServer';
 const fallbackMode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
-export default function LyraConfig({ mode = fallbackMode } = {}) {
+export default function IsleConfig({ mode = fallbackMode } = {}) {
   const isProduction = mode === 'production';
 
   logger.info(`Running in ${mode} mode`);

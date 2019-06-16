@@ -1,7 +1,7 @@
 {
-  "name": "@lyra/template",
+  "name": "@isle/template",
   "version": "0.0.0",
-  "description": "Lyra base file templates",
+  "description": "Isle base file templates",
   "author": {
     "name": "Hugo Manrique",
     "url": "https://hugmanrique.me",
@@ -11,9 +11,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/hugmanrique/Lyra",
+  "repository": "https://github.com/hugmanrique/Isle",
   "keywords": [
-    "lyra",
+    "isle",
     "template"
   ],
   "files": [

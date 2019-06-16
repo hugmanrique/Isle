@@ -1,5 +1,5 @@
 {
-  "name": "lyra",
+  "name": "isle",
   "private": true,
   "scripts": {
     "build": "lerna run build --stream"

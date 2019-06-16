@@ -3,7 +3,7 @@
  * mode, returns an empty object otherwise.
  *
  * @param {Object} config - devServer settings
- * @param {Boolean} config.isProduction - whether Lyra is running in production mode
+ * @param {Boolean} config.isProduction - whether Isle is running in production mode
  * @param {String} config.contentBase - path to serve static resources from
  * @param {String} config.publicPath - determines where bundles should be served from.
  * @returns {Object} a `devServer` webpack config section

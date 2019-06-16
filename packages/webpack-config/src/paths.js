@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import mkdirp from 'mkdirp';
-import logger from '@lyra/logger';
+import logger from '@isle/logger';
 import { copyFromTemplate } from './templateHelper';
 
 // Ensure symlinks are resolved
@@ -41,7 +41,7 @@ function checkDirectoryExists(dirPath, createIfNot) {
       return true;
     }
 
-    logger.error(`Lyra could not find the ${dirPath} directory`);
+    logger.error(`Isle could not find the ${dirPath} directory`);
     return false;
   }
 
@@ -57,11 +57,11 @@ function checkDirectoryExists(dirPath, createIfNot) {
 
 /**
  * Checks if `filePath` exists. If it does not and `loadFromTemplate`
- * is `true`, we attempt to resolve `@lyra/template/src/${filePath}`
+ * is `true`, we attempt to resolve `@isle/template/src/${filePath}`
  * and copy the file to `filePath`.
  *
  * @param {String} filePath - the path to check
- * @param {Boolean} copyIfMissing - whether to copy the file from Lyra's template
+ * @param {Boolean} copyIfMissing - whether to copy the file from Isle's template
  */
 function checkFileExists(filePath, copyIfMissing) {
   if (!fs.existsSync(filePath)) {
@@ -72,7 +72,7 @@ function checkFileExists(filePath, copyIfMissing) {
       return true;
     }
 
-    logger.error(`Lyra could not find the ${filePath} file`);
+    logger.error(`Isle could not find the ${filePath} file`);
     return false;
   }
 

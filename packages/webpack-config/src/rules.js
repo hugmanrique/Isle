@@ -3,7 +3,7 @@
  * to the current settings such as the environment.
  *
  * @param {Object} config - rules settings
- * @param {Boolean} config.isProduction - whether Lyra is running in production mode
+ * @param {Boolean} config.isProduction - whether Isle is running in production mode
  * @returns {Object[]} an array of webpack module rules
  * @see {@link https://webpack.js.org/configuration/module/#modulerules}
  */
@@ -17,7 +17,7 @@ export default function createModuleRules({ isProduction }) {
         {
           loader: 'babel-loader',
           options: {
-            presets: ['@lyra/babel-preset'],
+            presets: ['@isle/babel-preset'],
             cacheDirectory: true,
             cacheCompression: isProduction
           }

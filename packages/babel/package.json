@@ -1,7 +1,7 @@
 {
-  "name": "@lyra/babel-preset",
+  "name": "@isle/babel-preset",
   "version": "0.0.0",
-  "description": "Lyra Babel config",
+  "description": "Isle Babel config",
   "author": {
     "name": "Hugo Manrique",
     "url": "https://hugmanrique.me",
@@ -11,9 +11,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/hugmanrique/Lyra",
+  "repository": "https://github.com/hugmanrique/Isle",
   "keywords": [
-    "lyra",
+    "isle",
     "babel"
   ],
   "main": "index.js",
