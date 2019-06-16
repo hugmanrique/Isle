@@ -1,8 +1,8 @@
 import logger from '@lyra/logger';
-import babelPreset from '@lyra/babel-preset';
 
 import paths from './paths';
 import createOptimizationConfig from './optimization';
+import createModuleRules from './rules';
 
 const fallbackMode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -27,6 +27,9 @@ export default function LyraConfig({ mode = fallbackMode } = {}) {
     // Produces SourceMaps without comment references in production,
     // and best quality (but big) SourceMaps in development mode.
     // https://webpack.js.org/configuration/devtool/
-    devtool: isProduction ? 'hidden-source-map' : 'eval-source-map'
+    devtool: isProduction ? 'hidden-source-map' : 'eval-source-map',
+    module: {
+      rules: createModuleRules({ isProduction })
+    }
   };
 }

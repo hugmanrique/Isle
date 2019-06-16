@@ -6,6 +6,7 @@ import TerserPlugin from 'terser-webpack-plugin';
  * @param {Object} config - base settings
  * @param {Boolean} config.isProduction - whether Lyra is running in production mode
  * @returns {Object} a `TerserPlugin` instance, or null if `isProduction` is `false`.
+ * @see {@link https://github.com/webpack-contrib/terser-webpack-plugin}
  */
 function createTerserPluginInstance({ isProduction }) {
   if (!isProduction) {
@@ -51,6 +52,7 @@ function createTerserPluginInstance({ isProduction }) {
  * @param {Object} config - optimization settings
  * @param {Boolean} config.isProduction - whether Lyra is running in production mode
  * @returns {Object} a webpack `optimization` config section object
+ * @see {@link https://webpack.js.org/configuration/optimization/}
  */
 export default function createOptimizationConfig({ isProduction }) {
   return {
