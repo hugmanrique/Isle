@@ -15,7 +15,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 export default {
   // TODO Make these paths configurable
   appBuild: resolveApp('dist'),
-  appPublic: resolveApp('public'),
+  appStatic: resolveApp('static'),
   appEntry: resolveApp('src/index.js'),
   appHtmlTemplate: resolveApp('src/template.html'),
   publicPath: '/'

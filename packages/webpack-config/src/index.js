@@ -3,6 +3,7 @@ import logger from '@lyra/logger';
 import paths from './paths';
 import createOptimizationConfig from './optimization';
 import createModuleRules from './rules';
+import createDevServerConfig from './devServer';
 
 const fallbackMode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -30,6 +31,11 @@ export default function LyraConfig({ mode = fallbackMode } = {}) {
     devtool: isProduction ? 'hidden-source-map' : 'eval-source-map',
     module: {
       rules: createModuleRules({ isProduction })
-    }
+    },
+    devServer: createDevServerConfig({
+      isProduction,
+      contentBase: paths.appStatic,
+      publicPath: paths.publicPath
+    })
   };
 }
