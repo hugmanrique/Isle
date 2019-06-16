@@ -1,0 +1,34 @@
+{
+  "name": "@lyra/logger",
+  "version": "0.0.0",
+  "description": "Lyra logger",
+  "author": {
+    "name": "Hugo Manrique",
+    "url": "https://hugmanrique.me",
+    "email": "npm@hugmanrique.me"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/hugmanrique/Lyra",
+  "keywords": [
+    "lyra",
+    "logger"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c --environment NODE_ENV:production",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "colorette": "^1.0.8"
+  },
+  "devDependencies": {
+    "rollup": "^1.15.6"
+  }
+}

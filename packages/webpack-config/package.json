@@ -1,0 +1,41 @@
+{
+  "name": "@lyra/webpack-config",
+  "version": "0.0.0",
+  "description": "Lyra webpack config defaults",
+  "author": {
+    "name": "Hugo Manrique",
+    "url": "https://hugmanrique.me",
+    "email": "npm@hugmanrique.me"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/hugmanrique/Lyra",
+  "keywords": [
+    "lyra",
+    "webpack"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c --environment NODE_ENV:production",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "@lyra/logger": "^0.0.0",
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "terser-webpack-plugin": "^1.3.0",
+    "thread-loader": "^2.1.2"
+  },
+  "peerDependencies": {
+    "webpack": "^4.34.0"
+  },
+  "devDependencies": {
+    "rollup": "^1.15.6"
+  }
+}
