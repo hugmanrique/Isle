@@ -1,7 +1,8 @@
 // Note: Shebang gets added by Rollup
 
-import logger from '@isle/logger';
 import yargs from 'yargs';
+import startBuild from './build';
+import { startWatching } from './webpack';
 
 // eslint-disable-next-line no-unused-expressions
 yargs
@@ -9,13 +10,12 @@ yargs
     command: 'build',
     aliases: ['compile'],
     desc: 'Bundles and pre-renders your app',
-    handler: () => {
-      logger.info('Starting build process...');
-    }
+    handler: startBuild
+  })
+  .command({
+    command: 'watch',
+    desc: 'Watches app files for changes and recompiles',
+    handler: startWatching
   })
   .demandCommand()
   .help().argv;
-
-/*yargs.command(['build', 'compile'], 'Build the app', {}, argv => {
-
-})*/
