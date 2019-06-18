@@ -2,7 +2,7 @@ import logger from '@isle/logger';
 
 import getIsleConfig from './config';
 import { validatePaths } from './paths';
-import { setupWebpackConfig, setupPrerenderConfig } from './Plugin';
+import Plugin, { setupWebpackConfig, setupPrerenderConfig } from './Plugin';
 import {
   runBuild as runWebpackBuild,
   runWatch as runWebpackWatch
@@ -60,4 +60,5 @@ export default async function isle(config) {
   runPrerender({ config: prerenderConfig, paths });
 }
 
-export { default as Plugin } from './Plugin';
+// Don't mix named and default exports
+isle.Plugin = Plugin;

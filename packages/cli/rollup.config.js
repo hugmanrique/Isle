@@ -12,3 +12,5 @@ config.plugins.push(
   // Declare shebang
   banner('#/usr/bin/env node')
 );
+
+export default config;
