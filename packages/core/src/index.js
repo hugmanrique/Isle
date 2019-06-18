@@ -58,3 +58,5 @@ export default async function Isle({
 
   runPrerender({ config: prerenderConfig, paths });
 }
+
+export { default as Plugin } from './Plugin';
