@@ -1,6 +1,6 @@
 {
   "name": "@isle/babel-preset",
-  "version": "0.2.0",
+  "version": "0.2.11",
   "description": "Isle Babel config",
   "author": {
     "name": "Hugo Manrique",
