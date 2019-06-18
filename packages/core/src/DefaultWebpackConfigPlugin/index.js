@@ -47,8 +47,8 @@ export default class DefaultWebpackPlugin extends Plugin {
         rules: createModuleRules({ isProduction })
       },
       plugins: [
-        // rim-raf the output dir before bundling
-        new CleanWebpackPlugin([paths.appBuild]),
+        // Remove all files in output dir before bundling
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
           template: paths.appHtmlTemplate
         })
