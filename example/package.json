@@ -1,0 +1,26 @@
+{
+  "name": "@isle/example-app",
+  "version": "0.0.1",
+  "description": "An Isle example app",
+  "private": true,
+  "author": {
+    "name": "Hugo Manrique",
+    "url": "https://hugmanrique.me",
+    "email": "npm@hugmanrique.me"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/hugmanrique/Isle",
+  "scripts": {
+    "dev": "isle watch",
+    "build": "isle build"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@isle/cli": "^0.2.0",
+    "@isle/core": "^0.2.1",
+    "webpack": "^4.34.0"
+  }
+}
