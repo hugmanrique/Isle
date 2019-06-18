@@ -19,7 +19,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@isle/cli": "^0.2.0",
-    "@isle/core": "^0.2.1"
+    "@isle/cli": "^0.2.2",
+    "@isle/core": "^0.2.2"
   }
 }
