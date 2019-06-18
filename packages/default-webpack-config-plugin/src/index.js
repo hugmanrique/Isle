@@ -6,9 +6,23 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import createOptimizationConfig from './optimization';
 import createModuleRules from './rules';
 import createDevServerConfig from './devServer';
+import getUserWebpackConfig from './configFinder';
 
+/**
+ * Returns Isle's default webpack config. Depending on
+ * the passed `mode` and `plugins`, Isle applies different
+ * optimizations and plugins.
+ */
 export default class DefaultWebpackPlugin extends Plugin {
   setupWebpack({ mode, paths }) {
+    const userConfig = getUserWebpackConfig({ paths });
+
+    if (userConfig) {
+      // The user overrided Isle's default config
+      return userConfig;
+    }
+
+    // Fallback to default config
     const isProduction = mode === 'production';
 
     return {

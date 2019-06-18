@@ -1,5 +1,5 @@
 {
-  "name": "@isle/default-webpack-plugin",
+  "name": "@isle/default-webpack-config-plugin",
   "version": "0.1.2",
   "description": "Isle webpack config defaults plugin",
   "author": {
