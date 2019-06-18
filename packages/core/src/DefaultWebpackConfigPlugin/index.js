@@ -31,7 +31,7 @@ export default class DefaultWebpackPlugin extends Plugin {
       mode,
       entry: paths.appEntry,
       output: {
-        path: isProduction ? paths.appBuild : null,
+        path: isProduction ? paths.appBuild : undefined,
         filename: isProduction ? '[name].[chunkhash:8].js' : '[name].js',
         chunkFilename: isProduction
           ? '[name].[chunkhash:8].chunk.js'
