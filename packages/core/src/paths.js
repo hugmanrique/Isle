@@ -106,6 +106,7 @@ function checkFileExists(filePath, copyIfMissing) {
  * automatically created, this function will call `process.exit`.
  *
  * @param {IslePaths} userPaths - Isle app paths
+ * @returns {IslePaths} validated paths (merged with defaults)
  */
 export function validatePaths(userPaths = {}) {
   const paths = Object.assign(defaultPaths, userPaths);
@@ -119,4 +120,6 @@ export function validatePaths(userPaths = {}) {
   if (exit) {
     process.exit(1);
   }
+
+  return paths;
 }
