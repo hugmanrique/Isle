@@ -20,6 +20,6 @@
   },
   "devDependencies": {
     "@isle/cli": "^0.2.4",
-    "@isle/core": "^0.2.9"
+    "@isle/core": "^0.2.10"
   }
 }

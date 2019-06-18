@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = () => ({
   presets: [
     // Transpile ES6+ code
     '@babel/preset-env',
@@ -23,4 +23,4 @@ module.exports = {
       ]
     }
   }
-};
+});
