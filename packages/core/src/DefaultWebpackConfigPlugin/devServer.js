@@ -22,7 +22,7 @@ export default function createDevServerConfig({
     contentBase,
     // File updates from `contentBase` will trigger a page reload.
     watchContentBase: true,
-    // Fallback to serving the `index.html` page in place of 404 responses.
+    // Fallback to serve the `index.html` page in place of 404 responses.
     historyApiFallback: true,
     // Enable hot reloading server. Currently only changes to CSS are hot
     // reloaded. JS changes will refresh the browser.

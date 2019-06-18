@@ -60,15 +60,15 @@ export default function createOptimizationConfig({ isProduction }) {
     minimizer: [
       // Mangle and compress code in production mode
       createTerserPluginInstance({ isProduction })
-    ].filter(Boolean),
+    ].filter(Boolean)
     // Automatically split vendor and commons
     // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-    splitChunks: {
+    /*splitChunks: {
       chunks: 'all',
       name: false
-    },
+    },*/
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
-    runtimeChunk: true
+    //runtimeChunk: true
   };
 }
