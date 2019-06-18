@@ -40,6 +40,12 @@ const defaultPaths = {
 };
 
 /**
+ * Isle config path (cannot be overriden)
+ * @type {String}
+ */
+export const isleConfigPath = resolveApp('isle.config.js');
+
+/**
  * Checks if `dirPath` exists and is a directory.
  *
  * @param {String} dirPath - the path to check

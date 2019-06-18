@@ -1,6 +1,6 @@
 import logger from '@isle/logger';
-import DefaultWebpackConfigPlugin from '@isle/default-webpack-config-plugin';
 
+import getIsleConfig from './config';
 import { validatePaths } from './paths';
 import { setupWebpackConfig, setupPrerenderConfig } from './Plugin';
 import {
@@ -27,25 +27,24 @@ const fallbackMode =
  * @param {Object[]} config.plugins - an array of Isle plugins
  * @see {Plugin.js} for more info about plugins.
  */
-export default async function Isle({
-  mode = fallbackMode,
-  watch = false,
-  paths: userPaths = {},
-  plugins = []
-} = {}) {
+export default async function isle(config) {
+  const {
+    mode = fallbackMode,
+    watch = false,
+    paths: userPaths = {},
+    plugins = []
+  } = getIsleConfig(config);
+
   logger.info(`Running in ${mode} mode (watch=${watch})`);
 
   const paths = validatePaths(userPaths);
-
-  // Insert default webpack config plugin as first
-  plugins.unshift(new DefaultWebpackConfigPlugin());
 
   const webpackConfig = setupWebpackConfig({ mode, paths, plugins });
 
   logger.info('Starting webpack compilation...');
 
-  // Watch mode
   if (watch) {
+    // Watch mode
     runWebpackWatch(webpackConfig);
     return;
   }

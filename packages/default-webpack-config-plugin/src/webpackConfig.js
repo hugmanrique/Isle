@@ -1,5 +1,4 @@
 import fs from 'fs';
-import path from 'path';
 
 /**
  * Attempts to lookup and require the app's webpack config

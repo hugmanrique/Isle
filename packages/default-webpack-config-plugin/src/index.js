@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import createOptimizationConfig from './optimization';
 import createModuleRules from './rules';
 import createDevServerConfig from './devServer';
-import getUserWebpackConfig from './configFinder';
+import getUserWebpackConfig from './webpackConfig';
 
 /**
  * Returns Isle's default webpack config. Depending on
