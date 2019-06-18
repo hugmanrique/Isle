@@ -34,6 +34,7 @@
   "dependencies": {
     "@isle/logger": "^0.1.2",
     "@isle/webpack-config": "^0.1.2",
+    "react-snap": "^1.23.0",
     "yargs": "^13.2.4"
   },
   "devDependencies": {

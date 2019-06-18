@@ -3,15 +3,24 @@ import { __internalGetWebpackConfig } from '@isle/webpack-config';
 import logger from '@isle/logger';
 
 /**
+ * @typedef {Object} Compiler
+ * @property {Object} config - Isle's webpack config
+ * @property {Object} compiler - a webpack `Compiler` instance
+ */
+
+/**
  * Creates a webpack `Compiler` instance with Isle's config
  * grabbed from `@isle/webpack-config`.
  *
- * @returns {Object} a webpack `Compiler` instance
+ * @returns {Compiler} a compiler and config object
  */
 function createCompiler() {
   const config = __internalGetWebpackConfig();
 
-  return webpack(config);
+  return {
+    config,
+    compiler: webpack(config)
+  };
 }
 
 /**
@@ -45,18 +54,34 @@ function onCompile(err, stats) {
 
 /**
  * Starts a webpack compilation.
+ *
+ * @returns {Promise} called when the compilation is done. The resolve callback value is the used webpack config.
  */
-export function startBuild() {
-  const compiler = createCompiler();
+export const startBuild = () =>
+  new Promise((resolve, reject) => {
+    const { compiler, config } = createCompiler();
 
-  compiler.run(onCompile);
-}
+    compiler.run((err, stats) => {
+      // Log compile output
+      onCompile(err, stats);
+
+      if (err) {
+        return reject(err);
+      }
+
+      resolve(config);
+    });
+  });
 
 /**
  * Starts a webpack watching session.
+ *
+ * @returns {Object} the used webpack config
  */
 export function startWatching() {
-  const compiler = createCompiler();
+  const { compiler, config } = createCompiler();
 
   compiler.watch({}, onCompile);
+
+  return config;
 }

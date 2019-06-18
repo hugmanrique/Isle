@@ -1,15 +1,26 @@
 import logger from '@isle/logger';
 import { startBuild as startWebpackCompilation } from './webpack';
+import startPrerender from './prerender';
 
 /**
  * Builds the Isle app.
  */
-export default function startBuild() {
+export default async function startBuild() {
   logger.info('Starting webpack compilation...');
 
-  startWebpackCompilation();
+  const config = await startWebpackCompilation();
+
+  const prerenderSource = config.output.path;
+
+  if (!prerenderSource) {
+    logger.warn(
+      "Isle couldn't find webpack's output path in your config. Skipping prerendering."
+    );
+
+    return;
+  }
 
   logger.info('Pre-rendering routes...');
 
-  logger.warn('TODO Implement prerendering');
+  startPrerender({ source: prerenderSource });
 }
