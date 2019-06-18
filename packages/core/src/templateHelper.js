@@ -4,7 +4,9 @@ import logger from '@isle/logger';
 
 function loadTemplateDir() {
   try {
-    return require.resolve('@isle/template/src');
+    const packageJsonPath = require.resolve('@isle/template/package.json');
+
+    return path.dirname(packageJsonPath);
   } catch (err) {
     logger.fatal(
       `Isle could not find the @isle/template module. Try installing it with "npm i --save-dev @isle/template"`
