@@ -1,6 +1,6 @@
 import fs from 'fs';
 import logger from '@isle/logger';
-import DefaultWebpackConfigPlugin from '@isle/default-webpack-config-plugin';
+import DefaultWebpackConfigPlugin from './DefaultWebpackConfigPlugin';
 
 import { isleConfigPath } from './paths';
 
