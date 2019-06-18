@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": "https://github.com/hugmanrique/Isle",
   "scripts": {
-    "dev": "isle watch",
+    "dev": "isle dev",
     "build": "isle build"
   },
   "dependencies": {
@@ -19,7 +19,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@isle/cli": "^0.2.4",
+    "@isle/cli": "^0.2.13",
     "@isle/core": "^0.2.12"
   }
 }

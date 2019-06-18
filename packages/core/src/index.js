@@ -29,7 +29,7 @@ const fallbackMode =
  * @param {Object[]} config.plugins - an array of Isle plugins
  * @see {Plugin.js} for more info about plugins.
  */
-export default async function isle(config) {
+export default async function isle(config = {}) {
   const {
     mode = fallbackMode,
     watch = false,
