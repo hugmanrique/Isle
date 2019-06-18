@@ -9,18 +9,18 @@ yargs
     command: 'build',
     aliases: ['compile'],
     desc: 'Bundles and pre-renders your app',
-    handler: () => isle()
+    handler: () => isle({ mode: 'production' })
   })
   .command({
     command: 'watch',
     desc: 'Watches app files for changes and recompiles',
-    handler: () => isle({ watch: true })
+    handler: () => isle({ mode: 'development', watch: true })
   })
   .command({
     command: 'serve',
     aliases: ['dev', 'devserve', 'devserver'],
     desc: 'Serves Isle app and updates browser on changes',
-    handler: () => isle({ devServer: true })
+    handler: () => isle({ mode: 'development', devServer: true })
   })
   .demandCommand()
   .help().argv;
