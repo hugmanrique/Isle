@@ -17,7 +17,9 @@ export default class Plugin {
    * @param {IslePaths} obj.paths - Isle app paths
    * @see {@link https://webpack.js.org/configuration/}
    */
-  setupWebpack({ config, mode, paths }) {}
+  setupWebpack({ config, mode, paths }) {
+    return config;
+  }
 
   /**
    * Returns the modified react-snap config object respecting
@@ -29,7 +31,9 @@ export default class Plugin {
    * @param {IslePaths} obj.paths - Isle app paths
    * @see {@link https://github.com/stereobooster/react-snap/}
    */
-  setupPrerender({ config, mode, paths }) {}
+  setupPrerender({ config, mode, paths }) {
+    return config;
+  }
 }
 
 /**

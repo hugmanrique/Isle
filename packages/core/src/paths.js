@@ -6,6 +6,7 @@ import { copyFromTemplate } from './templateHelper';
 
 /**
  * @typedef {Object} IslePaths
+ * @property {String} appRoot - Isle app directory
  * @property {String} appBuild - directory where produced bundles and assets will be placed
  * @property {String} appStatic - directory where static assets will be looked up
  * @property {String} appEntry - webpack's bundle entry file
@@ -32,6 +33,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
  * @type {IslePaths}
  */
 const defaultPaths = {
+  appRoot: resolveApp(''),
   appBuild: resolveApp('dist'),
   appStatic: resolveApp('static'),
   appEntry: resolveApp('src/index.js'),

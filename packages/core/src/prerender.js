@@ -1,3 +1,4 @@
+import path from 'path';
 import { run as prerender } from 'react-snap';
 
 /**
@@ -21,7 +22,12 @@ export default function runPrerender({ config: userConfig = {}, paths = {} }) {
 
   if (!config.source) {
     // Default to prerendering webpack's output
-    config.source = paths.appBuild;
+
+    // react-snap doesn't support absolute source paths
+    // https://github.com/stereobooster/react-snap/blob/master/index.js#L656
+    const relativePath = path.relative(paths.appRoot, paths.appBuild);
+
+    config.source = relativePath;
   }
 
   prerender(config);
