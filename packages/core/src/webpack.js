@@ -1,5 +1,8 @@
 import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
 import logger from '@isle/logger';
+
+const listenPort = 4444;
 
 /**
  * Creates a webpack `Compiler` instance with the given config.
@@ -69,4 +72,17 @@ export function runWatch(config) {
   const compiler = createCompiler(config);
 
   compiler.watch({}, onCompile);
+}
+
+export function runDevServer(config) {
+  const compiler = createCompiler(config);
+  const server = new WebpackDevServer(compiler, {});
+
+  server.listen(listenPort, 'localhost', err => {
+    if (err) {
+      logger.fatal(err);
+    }
+
+    logger.info(`Listening on port ${listenPort}`);
+  });
 }

@@ -5,7 +5,8 @@ import { validatePaths } from './paths';
 import Plugin, { setupWebpackConfig, setupPrerenderConfig } from './Plugin';
 import {
   runBuild as runWebpackBuild,
-  runWatch as runWebpackWatch
+  runWatch as runWebpackWatch,
+  runDevServer as runWebpackDevServer
 } from './webpack';
 import runPrerender from './prerender';
 
@@ -31,6 +32,7 @@ export default async function isle(config) {
   const {
     mode = fallbackMode,
     watch = false,
+    devServer = false,
     paths: userPaths = {},
     plugins = []
   } = getIsleConfig(config);
@@ -42,6 +44,12 @@ export default async function isle(config) {
   const webpackConfig = setupWebpackConfig({ mode, paths, plugins });
 
   logger.info('Starting webpack compilation...');
+
+  if (devServer) {
+    // Dev server mode
+    runWebpackDevServer(webpackConfig);
+    return;
+  }
 
   if (watch) {
     // Watch mode

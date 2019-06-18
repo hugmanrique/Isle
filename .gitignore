@@ -39,6 +39,7 @@ coverage
 
 # Misc
 tmp
+work
 etc
 .changelog
 .eslintcache
