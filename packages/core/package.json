@@ -1,6 +1,6 @@
 {
   "name": "@isle/core",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "description": "Isle core package",
   "author": {
     "name": "Hugo Manrique",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@isle/babel-preset": "^0.2.0",
-    "@isle/logger": "^0.2.0",
+    "@isle/logger": "^0.2.4",
     "@isle/template": "^0.2.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",

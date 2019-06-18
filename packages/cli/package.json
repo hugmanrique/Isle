@@ -1,6 +1,6 @@
 {
   "name": "@isle/cli",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Isle Command-line interface",
   "author": {
     "name": "Hugo Manrique",
@@ -33,7 +33,7 @@
     "webpack": "^4.34.0"
   },
   "dependencies": {
-    "@isle/logger": "^0.2.0",
+    "@isle/logger": "^0.2.4",
     "react-snap": "^1.23.0",
     "yargs": "^13.2.4"
   },
