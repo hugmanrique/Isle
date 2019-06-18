@@ -13,11 +13,9 @@ import { isleConfigPath } from './paths';
  */
 function validateConfig(config, origin) {
   if (typeof config !== 'object') {
-    logger.error(
+    logger.fatal(
       `The config from ${origin} is not an Object (got ${typeof config} instead)`
     );
-
-    process.exit(1);
   }
 }
 

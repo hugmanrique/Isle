@@ -124,7 +124,7 @@ export function validatePaths(userPaths = {}) {
   ].some(result => !result);
 
   if (exit) {
-    process.exit(1);
+    logger.fatal('Some files/directories are missing');
   }
 
   return paths;

@@ -6,11 +6,9 @@ function loadTemplateDir() {
   try {
     return require.resolve('@isle/template/src');
   } catch (err) {
-    logger.error(
+    logger.fatal(
       `Isle could not find the @isle/template module. Try installing it with "npm i --save-dev @isle/template"`
     );
-
-    throw err;
   }
 }
 

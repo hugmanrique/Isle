@@ -19,3 +19,8 @@ function printMessage(prefix, message) {
 export const info = message => printMessage(prefixes.info, message);
 export const warn = message => printMessage(prefixes.warn, message);
 export const error = message => printMessage(prefixes.error, message);
+
+export const fatal = message => {
+  error(message);
+  process.exit(1);
+};
