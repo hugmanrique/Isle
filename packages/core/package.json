@@ -1,0 +1,40 @@
+{
+  "name": "@isle/core",
+  "version": "0.1.2",
+  "description": "Isle core package",
+  "author": {
+    "name": "Hugo Manrique",
+    "url": "https://hugmanrique.me",
+    "email": "npm@hugmanrique.me"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/hugmanrique/Isle",
+  "keywords": [
+    "isle",
+    "core"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c --environment NODE_ENV:production",
+    "prepublish": "npm run build"
+  },
+  "peerDependencies": {
+    "webpack": "^4.34.0"
+  },
+  "dependencies": {
+    "@isle/logger": "^0.1.2",
+    "@isle/template": "^0.1.2",
+    "@isle/webpack-config": "^0.1.2",
+    "react-snap": "^1.23.0"
+  },
+  "devDependencies": {
+    "rollup": "^1.15.6"
+  }
+}

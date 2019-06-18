@@ -17,8 +17,9 @@ const fallbackMode =
  *
  * @param {Object} config - Isle's config
  * @param {String} config.mode - webpack mode (`production` or `development`)
+ * @param {Object[]} config.plugins - an array of Isle plugins
  */
-export default function IsleConfig({ mode = fallbackMode } = {}) {
+export default function IsleConfig({ mode = fallbackMode, plugins = [] } = {}) {
   const isProduction = mode === 'production';
 
   logger.info(`Running in ${mode} mode`);
