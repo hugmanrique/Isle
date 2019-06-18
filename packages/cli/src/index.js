@@ -16,5 +16,11 @@ yargs
     desc: 'Watches app files for changes and recompiles',
     handler: () => isle({ watch: true })
   })
+  .command({
+    command: 'serve',
+    aliases: ['dev', 'devserve', 'devserver'],
+    desc: 'Serves Isle app and updates browser on changes',
+    handler: () => isle({ devServer: true })
+  })
   .demandCommand()
   .help().argv;
