@@ -20,10 +20,10 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-banner": "^0.2.0",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-node-resolve": "^5.0.3",
     "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-preserve-shebang": "^0.1.6",
     "rollup-plugin-terser": "^5.0.0",
     "webpack": "^4.34.0"
   }

@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@isle/cli": "^0.2.0",
-    "@isle/core": "^0.2.1",
-    "webpack": "^4.34.0"
+    "@isle/core": "^0.2.1"
   }
 }
