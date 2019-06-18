@@ -1,4 +1,5 @@
 import { Plugin } from '@isle/core';
+import logger from '@isle/logger';
 
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -18,7 +19,8 @@ export default class DefaultWebpackPlugin extends Plugin {
     const userConfig = getUserWebpackConfig({ paths });
 
     if (userConfig) {
-      // The user overrided Isle's default config
+      logger.info(`Found webpack config override in ${paths.webpackConfig}`);
+
       return userConfig;
     }
 

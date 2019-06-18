@@ -1,4 +1,5 @@
 import logger from '@isle/logger';
+import DefaultWebpackConfigPlugin from '@isle/default-webpack-config-plugin';
 
 import { validatePaths } from './paths';
 import { setupWebpackConfig, setupPrerenderConfig } from './Plugin';
@@ -36,7 +37,8 @@ export default async function Isle({
 
   const paths = validatePaths(userPaths);
 
-  // TODO unshift Isle's default plugin
+  // Insert default webpack config plugin as first
+  plugins.unshift(new DefaultWebpackConfigPlugin());
 
   const webpackConfig = setupWebpackConfig({ mode, paths, plugins });
 
