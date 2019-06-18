@@ -9,6 +9,7 @@ import { copyFromTemplate } from './templateHelper';
  * @property {String} appBuild - directory where produced bundles and assets will be placed
  * @property {String} appStatic - directory where static assets will be looked up
  * @property {String} appEntry - webpack's bundle entry file
+ * @property {String} appComponent - main app React component
  * @property {String} appHtmlWebpack - HTML file used as the prerendering template (also used in development mode)
  * @property {String} webpackConfig - webpack config filepath
  * @property {String} publicPath - base path for all assets
@@ -34,6 +35,7 @@ const defaultPaths = {
   appBuild: resolveApp('dist'),
   appStatic: resolveApp('static'),
   appEntry: resolveApp('src/index.js'),
+  appComponent: resolveApp('src/App.js'),
   appHtmlTemplate: resolveApp('src/template.html'),
   webpackConfig: resolveApp('webpack.config.js'),
   publicPath: '/'
