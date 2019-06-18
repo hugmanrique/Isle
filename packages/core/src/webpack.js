@@ -74,6 +74,11 @@ export function runWatch(config) {
   compiler.watch({}, onCompile);
 }
 
+/**
+ * Starts a webpack DevServer on `listenPort`.
+ *
+ * @param {Object} config - a webpack config object
+ */
 export function runDevServer(config) {
   const compiler = createCompiler(config);
   const server = new WebpackDevServer(compiler, {});

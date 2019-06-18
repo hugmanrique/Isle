@@ -24,6 +24,7 @@ const fallbackMode =
  * @param {Object} config - Isle's config
  * @param {String} config.mode - webpack mode (`production` or `development`)
  * @param {Boolean} config.watch - continuous compilation (watch for changes)
+ * @param {Boolean} config.devServer - serve Isle app and update browser on changes
  * @param {IslePaths} config.paths - Isle app paths
  * @param {Object[]} config.plugins - an array of Isle plugins
  * @see {Plugin.js} for more info about plugins.
