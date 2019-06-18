@@ -1,6 +1,6 @@
 {
   "name": "@isle/core",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Isle core package",
   "author": {
     "name": "Hugo Manrique",
@@ -29,9 +29,9 @@
     "webpack": "^4.34.0"
   },
   "dependencies": {
-    "@isle/logger": "^0.1.2",
-    "@isle/template": "^0.1.2",
-    "@isle/default-webpack-config-plugin": "^0.1.2",
+    "@isle/default-webpack-config-plugin": "^0.2.0",
+    "@isle/logger": "^0.2.0",
+    "@isle/template": "^0.2.0",
     "mkdirp": "^0.5.1",
     "react-snap": "^1.23.0"
   },
