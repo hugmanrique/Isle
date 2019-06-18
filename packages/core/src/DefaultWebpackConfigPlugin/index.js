@@ -1,7 +1,7 @@
 import Plugin from '../Plugin';
 import logger from '@isle/logger';
 
-import CleanWebpackPlugin from 'clean-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 import createOptimizationConfig from './optimization';
