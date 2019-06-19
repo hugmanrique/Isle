@@ -30,7 +30,13 @@ function onCompile(err, stats) {
     return;
   }
 
-  const message = stats.toString();
+  // Only construct the warnings and errors for performance
+  // https://github.com/facebook/create-react-app/issues/4492#issuecomment-421959548
+  const message = stats.toString({
+    all: false,
+    warnings: true,
+    errors: true
+  });
 
   if (stats.hasErrors()) {
     logger.error(message);
@@ -81,6 +87,8 @@ export function runWatch(config) {
  */
 export function runDevServer(config) {
   const compiler = createCompiler(config);
+
+  // devServer options are passed through `DefaultWebpackConfigPlugin`
   const server = new WebpackDevServer(compiler, {});
 
   server.listen(listenPort, 'localhost', err => {

@@ -27,6 +27,8 @@ export default function createDevServerConfig({
     // Enable hot reloading server. Currently only changes to CSS are hot
     // reloaded. JS changes will refresh the browser.
     hot: true,
-    publicPath
+    publicPath,
+    // Make webpack-dev-server less verbose
+    stats: {}
   };
 }
