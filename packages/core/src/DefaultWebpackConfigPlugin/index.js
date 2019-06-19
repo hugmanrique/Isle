@@ -3,6 +3,7 @@ import logger from '@isle/logger';
 
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import merge from 'webpack-merge';
 
 import createOptimizationConfig from './optimization';
 import createModuleRules from './rules';
@@ -16,18 +17,10 @@ import getUserWebpackConfig from './config';
  */
 export default class DefaultWebpackPlugin extends Plugin {
   setupWebpack({ mode, paths }) {
-    const userConfig = getUserWebpackConfig({ paths });
-
-    if (userConfig) {
-      logger.info(`Found webpack config override in ${paths.webpackConfig}`);
-
-      return userConfig;
-    }
-
     // Fallback to default config
     const isProduction = mode === 'production';
 
-    return {
+    const config = {
       mode,
       entry: paths.appEntry,
       output: {
@@ -59,5 +52,17 @@ export default class DefaultWebpackPlugin extends Plugin {
         publicPath: paths.publicPath
       })
     };
+
+    const userConfig = getUserWebpackConfig({ paths });
+
+    if (userConfig) {
+      logger.info(
+        `Found webpack config in ${paths.webpackConfig}, merging with defaults...`
+      );
+
+      return merge(config, userConfig);
+    }
+
+    return config;
   }
 }

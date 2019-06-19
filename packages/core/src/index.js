@@ -66,6 +66,8 @@ export default async function isle(config = {}) {
   // 2. Prerender webpack's output
   const prerenderConfig = setupPrerenderConfig({ mode, paths, plugins });
 
+  logger.info('Pre-rendering pages...');
+
   runPrerender({ config: prerenderConfig, paths });
 }
 
