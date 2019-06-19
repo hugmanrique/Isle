@@ -6,7 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 
 const isProd = process.env.NODE_ENV === 'production';
 
-export default function(pkg) {
+export default function defaultConfig(pkg) {
   return {
     input: 'src/index.js',
     output: {
@@ -36,4 +36,19 @@ export default function(pkg) {
       isProd && terser()
     ].filter(Boolean)
   };
+}
+
+export function withModule(pkg) {
+  const config = defaultConfig(pkg);
+
+  const cjsOutput = Object.assign({}, config.output);
+  const esmOutput = {
+    file: pkg.module,
+    format: 'esm',
+    sourcemap: cjsOutput.sourcemap
+  };
+
+  config.output = [cjsOutput, esmOutput];
+
+  return config;
 }
