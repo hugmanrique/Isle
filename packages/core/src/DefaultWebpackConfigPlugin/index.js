@@ -17,7 +17,6 @@ import getUserWebpackConfig from './config';
  */
 export default class DefaultWebpackPlugin extends Plugin {
   setupWebpack({ mode, paths }) {
-    // Fallback to default config
     const isProduction = mode === 'production';
 
     const config = {
@@ -63,6 +62,7 @@ export default class DefaultWebpackPlugin extends Plugin {
       return merge(config, userConfig);
     }
 
+    // Fallback to default config
     return config;
   }
 }
