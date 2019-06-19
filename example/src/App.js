@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Router } from '@reach/router';
 
-import { lazyPage as lazy } from '@lyra/pages';
+import { lazyPage as lazy } from '@isle/pages';
 
 const Loading = () => <p>Loading...</p>;
 

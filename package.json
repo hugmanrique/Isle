@@ -2,7 +2,7 @@
   "name": "isle",
   "private": true,
   "scripts": {
-    "setup": "lerna exec npm i && lerna link",
+    "setup": "lerna bootstrap && node install.js",
     "build": "lerna run build --stream",
     "cleanup": "lerna exec -- rm -rf dist"
   },
