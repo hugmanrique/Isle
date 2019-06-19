@@ -91,8 +91,8 @@ export function runDevServer(config) {
   // Tap Isle's logger
   compiler.hooks.done.tap('done', onCompile);
 
-  // devServer options are passed through `DefaultWebpackConfigPlugin`
-  const server = new WebpackDevServer(compiler, {});
+  // devServer options are passed through all plugins
+  const server = new WebpackDevServer(compiler, config.devServer);
 
   server.listen(listenPort, 'localhost', err => {
     if (err) {
