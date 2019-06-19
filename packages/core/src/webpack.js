@@ -99,6 +99,6 @@ export function runDevServer(config) {
       logger.fatal(err);
     }
 
-    logger.info(`Listening on port ${listenPort}`);
+    logger.info(`Listening on http://localhost:${listenPort}/`);
   });
 }
