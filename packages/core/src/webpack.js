@@ -94,6 +94,9 @@ export function runDevServer(config) {
   // devServer options are passed through all plugins
   const server = new WebpackDevServer(compiler, config.devServer);
 
+  // Silence default logger
+  server.log.options.level = 'silent';
+
   server.listen(listenPort, 'localhost', err => {
     if (err) {
       logger.fatal(err);
