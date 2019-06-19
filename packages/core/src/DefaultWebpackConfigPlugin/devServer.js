@@ -29,6 +29,9 @@ export default function createDevServerConfig({
     hot: true,
     publicPath,
     // We tap our own bundle results logger
-    stats: 'none'
+    quiet: true,
+    // Silence WebpackDevServer's "verbose" logs. It will still print
+    // warnings and errrors.
+    clientLogLevel: 'none'
   };
 }
