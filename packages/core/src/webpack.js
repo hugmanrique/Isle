@@ -88,6 +88,9 @@ export function runWatch(config) {
 export function runDevServer(config) {
   const compiler = createCompiler(config);
 
+  // Tap Isle's logger
+  compiler.hooks.done.tap('done', onCompile);
+
   // devServer options are passed through `DefaultWebpackConfigPlugin`
   const server = new WebpackDevServer(compiler, {});
 

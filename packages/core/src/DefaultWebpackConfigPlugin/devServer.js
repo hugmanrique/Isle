@@ -28,7 +28,7 @@ export default function createDevServerConfig({
     // reloaded. JS changes will refresh the browser.
     hot: true,
     publicPath,
-    // Make webpack-dev-server less verbose
-    stats: {}
+    // We tap our own bundle results logger
+    stats: 'none'
   };
 }
