@@ -31,8 +31,5 @@
   },
   "dependencies": {
     "react-prerendered-component": "^1.2.2"
-  },
-  "devDependencies": {
-    "rollup": "^1.15.6"
   }
 }

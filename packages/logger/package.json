@@ -27,8 +27,5 @@
   },
   "dependencies": {
     "colorette": "^1.0.8"
-  },
-  "devDependencies": {
-    "rollup": "^1.15.6"
   }
 }
