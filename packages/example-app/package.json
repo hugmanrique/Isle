@@ -1,6 +1,6 @@
 {
   "name": "@isle/example-app",
-  "version": "0.0.1",
+  "version": "0.2.24",
   "description": "An Isle example app",
   "private": true,
   "author": {
@@ -15,13 +15,13 @@
     "build": "isle build"
   },
   "dependencies": {
-    "@isle/pages": "file:../packages/pages",
+    "@isle/pages": "^0.2.24",
     "@reach/router": "^1.2.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@isle/cli": "file:../packages/cli",
-    "@isle/core": "file:../packages/core"
+    "@isle/cli": "^0.2.14",
+    "@isle/core": "^0.2.24"
   }
 }
