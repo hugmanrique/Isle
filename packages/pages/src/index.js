@@ -20,12 +20,12 @@ const prefetchLazy = LazyComponent => {
 };
 
 /**
- * Prerender the dynamic import as a component, and lazy-load on the client.
+ * Prerender the dynamic import as a component, and lazy-load it on the client.
  *
  * Isle will use prerendered HTML to prevent the page from flashing
  * (drawing the "loading" state of the component).
  *
- * @param {Function} importFn - function that must return a `Promise` which resolves to a module with a `default` export containing a React component.
+ * @param {Function} importFn - must return a `Promise` which resolves to a module with a `default` export containing a React component.
  * @see {@link https://reactjs.org/docs/code-splitting.html#reactlazy}
  * @see {@link https://github.com/stereobooster/react-snap/blob/master/Readme.md#%EF%B8%8F-caveats}
  */
