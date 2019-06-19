@@ -19,16 +19,6 @@ const createCompiler = config => webpack(config);
  * @param {Object} stats - webpack's stat object
  */
 function onCompile(err, stats) {
-  if (!stats) {
-    // This function also supports being a "done"
-    // webpack compiler hook (with a single "stats" param)
-    // https://webpack.js.org/api/compiler-hooks/#done
-    /* eslint-disable no-param-reassign */
-    stats = err;
-    err = undefined;
-    /* eslint-enable no-param-reassign */
-  }
-
   if (err) {
     logger.error(err);
 
@@ -100,13 +90,10 @@ export function runDevServer(config) {
 
   // Tap Isle's logger
   // The "done" event is fired when webpack is done recompiling the bundle.
-  compiler.hooks.done.tap('done', onCompile);
+  compiler.hooks.done.tap('done', stats => onCompile(null, stats));
 
   // devServer options are passed through all plugins
   const server = new WebpackDevServer(compiler, config.devServer);
-
-  // Silence default logger
-  server.log.options.level = 'silent';
 
   server.listen(listenPort, 'localhost', err => {
     if (err) {
