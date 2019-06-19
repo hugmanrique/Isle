@@ -63,15 +63,13 @@ export default function createOptimizationConfig({ isProduction }) {
     ].filter(Boolean),
     // Automatically split vendor and commons
     // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-    /*splitChunks: {
-      chunks: 'all',
-      name: false
-    },*/
+    splitChunks: {
+      // Include all types of chunks
+      // https://webpack.js.org/plugins/split-chunks-plugin/#splitchunkschunks
+      chunks: 'all'
+    },
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
-    //runtimeChunk: true
-    runtimeChunk: {
-      name: 'runtime'
-    }
+    runtimeChunk: true
   };
 }
