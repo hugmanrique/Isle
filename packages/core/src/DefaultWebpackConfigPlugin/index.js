@@ -44,14 +44,7 @@ export default class DefaultWebpackPlugin extends Plugin {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
           template: paths.appHtmlTemplate
-        }),
-        // Copy static assets
-        new CopyWebpackPlugin([
-          {
-            from: paths.appStatic,
-            to: paths.appBuild
-          }
-        ])
+        })
       ],
       devServer: createDevServerConfig({
         isProduction,
@@ -59,6 +52,18 @@ export default class DefaultWebpackPlugin extends Plugin {
         publicPath: paths.publicPath
       })
     };
+
+    if (isProduction) {
+      config.plugins.push(
+        // Copy static assets
+        new CopyWebpackPlugin([
+          {
+            from: paths.appStatic,
+            to: paths.appBuild
+          }
+        ])
+      );
+    }
 
     const userConfig = getUserWebpackConfig({ paths });
 

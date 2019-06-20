@@ -68,8 +68,11 @@ function attachLogger(child) {
   child.on('error', console.error);
 }
 
+const runGlobal = process.env.SKIP_GLOBAL === undefined;
+const command = runGlobal ? 'npm i' : 'echo "Skipping global install"';
+
 // Run initial install
-const globalInstall = exec('npm i', npmOptions, err => {
+const globalInstall = exec(command, npmOptions, err => {
   if (err) {
     throw err;
   }

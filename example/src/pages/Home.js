@@ -6,6 +6,7 @@ function Home() {
     <main>
       <h1>Home page</h1>
       <p>Hello world!</p>
+      <img src="/example.png" alt="Code" />
       <Link to="/contact">Contact page</Link>
     </main>
   );
