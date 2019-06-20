@@ -135,6 +135,26 @@ Advanced users can use [magic comments](https://webpack.js.org/api/module-method
 
 The router structure varies from library to library. Isle respects all routing capabilities such as [nested component paths](https://reach.tech/router/tutorial/06-nesting), [URL parameters](https://reach.tech/router/tutorial/05-url-parameters) (due to their dynamic nature, these routes will not be prerendered though), or [imperative navigation](https://reach.tech/router/tutorial/09-navigate).
 
+## Importing CSS / Sass / Less files
+
+Isle doesn't include any CSS library by default. Instead, we provide different plugins:
+
+- [`@isle/plugin-css`](packages/plugin-css)
+- [`@isle/plugin-sass`](packages/plugin-sass)
+
+All style plugins are based on `@isle/plugin-css`, so they support the same base options:
+
+| Name                 | Type      | Description                                                               |
+|----------------------|-----------|---------------------------------------------------------------------------|
+| `extract`            | `Boolean` | Whether to extract CSS to external files                                  |
+| `modules`            | `Boolean` | Support [CSS modules](https://github.com/css-modules/css-modules)?        |
+| `styleLoaderOptions` | `Object`  | [`style-loader`](https://github.com/webpack-contrib/style-loader) options |
+| `cssLoaderOptions`   | `Object`  | [`css-loader`](https://github.com/webpack-contrib/css-loader) options     |
+
+Additional options can be found in each plugin's README file.
+
+> We currently don't support importing Less files. We are looking for contributors, though! 😉
+
 ## Static assets
 
 You can serve static assets like images or fonts by placing them on the `static/` directory. You can reference these files with absolute URLs:
