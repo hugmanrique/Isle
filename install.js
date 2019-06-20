@@ -77,7 +77,9 @@ function attachLogger(child) {
 }
 
 const runGlobal = process.env.SKIP_GLOBAL === undefined;
-const command = runGlobal ? 'npm i' : 'echo "Skipping global install"';
+const command = runGlobal
+  ? 'npm i --no-package-lock'
+  : 'echo "Skipping global install"';
 
 // Run initial install
 const globalInstall = exec(command, npmOptions, err => {
@@ -91,7 +93,9 @@ const globalInstall = exec(command, npmOptions, err => {
 
   console.log(`Installing ${appDependencies.length} (direct) transitive deps`);
 
-  const fixArgs = ['install', '--no-save'].concat(appDependencies);
+  const fixArgs = ['install', '--no-save --no-package-lock'].concat(
+    appDependencies
+  );
 
   const transInstall = spawn('npm', fixArgs, npmOptions);
 
