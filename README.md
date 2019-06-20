@@ -55,7 +55,7 @@ Optionally, add the following scripts to your `package.json` file:
 
 Finally, run `npm run dev` to start the development server and go to `http://localhost:4444`. You should now see a "Hello world!" message.
 
-## Adding routing
+## Routing
 
 Alright, but where's all the routing? Recall you installed `@isle/pages`, but the `src/App.js` makes no mention of it.
 
@@ -134,6 +134,15 @@ Next, we declare each page component using the `lazyPage` function. It takes a f
 Advanced users can use [magic comments](https://webpack.js.org/api/module-methods/#magic-comments) to change webpack's code splitting behavior.
 
 The router structure varies from library to library. Isle respects all routing capabilities such as [nested component paths](https://reach.tech/router/tutorial/06-nesting), [URL parameters](https://reach.tech/router/tutorial/05-url-parameters) (due to their dynamic nature, these routes will not be prerendered though), or [imperative navigation](https://reach.tech/router/tutorial/09-navigate).
+
+## Static assets
+
+You can serve static assets like images or fonts by placing them on the `static/` directory. You can reference these files with absolute URLs:
+
+| Asset | URL |
+|---|---|
+| `static/example.png` | `/example.png` |
+| `static/fonts/foo.woff2` | `/fonts/foo.woff2` |
 
 ## License
 
