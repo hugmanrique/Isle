@@ -1,6 +1,6 @@
 {
   "name": "@isle/plugin-css",
-  "version": "0.2.26",
+  "version": "0.2.27",
   "description": "Isle CSS plugin",
   "author": {
     "name": "Hugo Manrique",
@@ -27,7 +27,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@isle/core": "^0.2.26",
+    "@isle/core": "^0.2.27",
     "css-loader": "^3.0.0",
     "mini-css-extract-plugin": "^0.7.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
