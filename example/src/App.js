@@ -3,6 +3,8 @@ import { Router } from '@reach/router';
 
 import { lazyPage as lazy } from '@isle/pages';
 
+import './styles.css';
+
 const Loading = () => <p>Loading...</p>;
 
 const Home = lazy(() => import('./pages/Home'));

@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@isle/cli": "file:../packages/cli",
-    "@isle/core": "file:../packages/core"
+    "@isle/core": "file:../packages/core",
+    "@isle/plugin-css": "file:../packages/plugin-css"
   }
 }

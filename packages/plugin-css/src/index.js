@@ -22,3 +22,5 @@ export class CssPlugin extends Plugin {
     return config;
   }
 }
+
+export { addStyleConfig };
