@@ -99,7 +99,7 @@ export default function Contact() {
 }
 ```
 
-You can use hooks for data loading ([Suspense for Data Fetching](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html) is coming soon!), state management, and much more.
+You can use any React feature such as hooks for data loading ([Suspense for Data Fetching](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html) is coming soon!), or state management in your page components.
 
 Now, let's create our app primary router. Go to your `App.js` file and change the default component by:
 
