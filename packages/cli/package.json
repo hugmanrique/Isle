@@ -1,6 +1,6 @@
 {
   "name": "@isle/cli",
-  "version": "0.2.27",
+  "version": "0.2.28",
   "description": "Isle Command-line interface",
   "author": {
     "name": "Hugo Manrique",
@@ -38,7 +38,7 @@
     "yargs": "^13.2.4"
   },
   "devDependencies": {
-    "@isle/core": "^0.2.27",
+    "@isle/core": "^0.2.28",
     "rollup": "^1.15.6"
   }
 }
