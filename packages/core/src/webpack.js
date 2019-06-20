@@ -81,6 +81,16 @@ export function runWatch(config) {
 }
 
 /**
+ * Dictates what port webpack-dev-server should listen on.
+ *
+ * @param {Object} config - a webpack config object
+ */
+const getListenPort = config =>
+  process.env.ISLE_DEV_PORT
+    ? parseInt(process.env.ISLE_DEV_PORT)
+    : config.devServer.port || defaultPort;
+
+/**
  * Starts a webpack DevServer on `listenPort`.
  *
  * @param {Object} config - a webpack config object
@@ -94,7 +104,7 @@ export function runDevServer(config) {
 
   // devServer options are passed through all plugins
   const server = new WebpackDevServer(compiler, config.devServer);
-  const listenPort = config.devServer.port || defaultPort;
+  const listenPort = getListenPort(config);
 
   server.listen(listenPort, 'localhost', err => {
     if (err) {
