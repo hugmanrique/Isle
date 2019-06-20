@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": "https://github.com/hugmanrique/Isle",
   "scripts": {
-    "dev": "isle dev --port 4443",
+    "dev": "isle dev --help",
     "build": "isle build",
     "serve": "caddy -root dist"
   },

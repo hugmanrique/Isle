@@ -17,7 +17,7 @@ yargs
     handler: () => isle({ mode: 'development', watch: true })
   })
   .command({
-    command: 'serve [port]',
+    command: 'serve',
     aliases: ['dev', 'devserve', 'devserver'],
     desc: 'Serves Isle app and updates browser on changes',
     builder: args =>
