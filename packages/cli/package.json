@@ -40,6 +40,5 @@
   "devDependencies": {
     "@isle/core": "^0.2.27",
     "rollup": "^1.15.6"
-  },
-  "gitHead": "d91539ad9494bc5cf0c909e643face70120e84aa"
+  }
 }
