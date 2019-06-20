@@ -21,14 +21,15 @@ yargs
     aliases: ['dev', 'devserve', 'devserver'],
     desc: 'Serves Isle app and updates browser on changes',
     builder: args =>
-      args.positional('port', {
-        describe: 'Port to bind on',
+      args.option('port', {
         alias: 'p',
+        describe: 'Port to bind on',
         type: 'number'
       }),
     handler: argv => {
       const listenPort = argv.port;
 
+      // Define devServer port
       if (listenPort) {
         process.env.ISLE_DEV_PORT = listenPort;
       }
