@@ -58,7 +58,7 @@ function fixLocalDeps() {
       throw new Error(`Cannot find local package ${depName} in "packages/"`);
     }
 
-    if (depName.contains('plugin')) {
+    if (depName.includes('plugin')) {
       appDependencies.splice(i, 1);
       console.log(
         `Found plugin trans dep ${depName}. You will need to install this dep manually
