@@ -20,8 +20,8 @@ yargs
     command: 'serve [port]',
     aliases: ['dev', 'devserve', 'devserver'],
     desc: 'Serves Isle app and updates browser on changes',
-    builder: yargs =>
-      yargs.positional('port', {
+    builder: args =>
+      args.positional('port', {
         describe: 'Port to bind on',
         alias: 'p',
         type: 'number'
