@@ -6,3 +6,6 @@ node_js:
 
 # TODO Make caching directives more aggresive
 cache: npm
+
+notifications:
+  email: false
