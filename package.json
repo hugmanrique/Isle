@@ -4,6 +4,7 @@
   "scripts": {
     "setup": "lerna bootstrap && node install.js",
     "build": "lerna run build --stream",
+    "test": "npm run setup && npm run build",
     "cleanup": "lerna exec -- rm -rf dist"
   },
   "engines": {
