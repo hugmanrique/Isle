@@ -2,7 +2,7 @@ import { Plugin } from '@isle/core';
 import addStyleConfig from './styleConfig';
 
 /**
- * Add CSS support to Isle
+ * Adds CSS file support to Isle
  */
 export class CssPlugin extends Plugin {
   constructor(options = {}) {

@@ -1,0 +1,38 @@
+{
+  "name": "@isle/plugin-sass",
+  "version": "0.2.27",
+  "description": "Isle SASS plugin",
+  "author": {
+    "name": "Hugo Manrique",
+    "url": "https://hugmanrique.me",
+    "email": "npm@hugmanrique.me"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/hugmanrique/Isle",
+  "keywords": [
+    "isle",
+    "plugin",
+    "sass"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c --environment NODE_ENV:production",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "@isle/core": "^0.2.27",
+    "@isle/plugin-css": "^0.2.27",
+    "sass-loader": "^7.1.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "rollup": "^1.15.6"
+  }
+}
