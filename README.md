@@ -139,54 +139,9 @@ The router structure varies from library to library. Isle respects all routing c
 
 Isle is licensed under the [MIT License](LICENSE).
 
-<!--
-Isle focuses on:
-
-- Best webpack and Babel defaults for production and development.
-- A single webpack compilation to keep build times low.
-- Crawl and prerender your site on a real Chromium browser (via [react-snap](https://github.com/stereobooster/react-snap) and [puppeteer](https://github.com/GoogleChrome/puppeteer)).
-- Don't impose any filesystem structure. Organize your files however you want.
-- Support `webpack.config.js` and `.babelrc` config overrides.
-- An easy-to-use plugin collection.
-- Automatic code splitting and lazy loading through `@isle/pages`.
-
-
-
-
-There are two approaches to customize your Isle app:
-
-- Add installable plugins
-
-- If you already know webpack and Babel, you can
-
-
-
-
-
-
-
-Two approaches of customizing your Isle app setup:
-
--
-
-
-- Uses the tools you're already used to:
-  - Supports any client-side routing library
-  - Override Isle defaults with your own webpack and Babel configs.
-  -
-  - Easy-to-use system for those who don't want to modify
-- Organize your files as you desire.
-- Easy page code splitting and lazy loading through `@isle/pages`.
-- Customizable through plugins and webpack and Babel configurations
--
-
-
-
-
-
-
-## Features
-
-## Getting started
-
--->
+[npm]: https://img.shields.io/npm/v/@isle/core.svg
+[npm-url]: https://www.npmjs.com/search?q=keywords:isle
+[tests]: https://img.shields.io/travis/hugmanrique/Isle/master.svg
+[tests-url]: https://travis-ci.org/hugmanrique/Isle
+[license]: https://img.shields.io/github/license/hugmanrique/Isle.svg
+[license-url]: LICENSE
