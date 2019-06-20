@@ -27,10 +27,14 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@isle/core": "file:../core",
+    "@isle/core": "^0.2.26",
     "css-loader": "^3.0.0",
     "mini-css-extract-plugin": "^0.7.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "style-loader": "^0.23.1"
+  },
+  "gitHead": "d91539ad9494bc5cf0c909e643face70120e84aa",
+  "devDependencies": {
+    "rollup": "^1.15.6"
   }
 }

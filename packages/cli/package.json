@@ -33,11 +33,13 @@
     "webpack": "^4.34.0"
   },
   "dependencies": {
-    "@isle/logger": "file:../logger",
+    "@isle/logger": "^0.2.25",
     "react-snap": "^1.23.0",
     "yargs": "^13.2.4"
   },
   "devDependencies": {
-    "@isle/core": "file:../core"
-  }
+    "@isle/core": "^0.2.26",
+    "rollup": "^1.15.6"
+  },
+  "gitHead": "d91539ad9494bc5cf0c909e643face70120e84aa"
 }
