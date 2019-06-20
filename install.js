@@ -58,6 +58,14 @@ function fixLocalDeps() {
       throw new Error(`Cannot find local package ${depName} in "packages/"`);
     }
 
+    if (depName.contains('plugin')) {
+      appDependencies.splice(i, 1);
+      console.log(
+        `Found plugin trans dep ${depName}. You will need to install this dep manually
+        Use "npm i --no-package-lock --no-save ../packages/${dirName}"`
+      );
+    }
+
     appDependencies[i] = `../packages/${dirName}`;
   }
 }
