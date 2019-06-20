@@ -3,6 +3,7 @@ import logger from '@isle/logger';
 
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import merge from 'webpack-merge';
 
 import createOptimizationConfig from './optimization';
@@ -43,7 +44,14 @@ export default class DefaultWebpackPlugin extends Plugin {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
           template: paths.appHtmlTemplate
-        })
+        }),
+        // Copy static assets
+        new CopyWebpackPlugin([
+          {
+            from: paths.appStatic,
+            to: paths.appBuild
+          }
+        ])
       ],
       devServer: createDevServerConfig({
         isProduction,
