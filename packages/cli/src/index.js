@@ -17,10 +17,24 @@ yargs
     handler: () => isle({ mode: 'development', watch: true })
   })
   .command({
-    command: 'serve',
+    command: 'serve [port]',
     aliases: ['dev', 'devserve', 'devserver'],
     desc: 'Serves Isle app and updates browser on changes',
-    handler: () => isle({ mode: 'development', devServer: true })
+    builder: yargs =>
+      yargs.positional('port', {
+        describe: 'Port to bind on',
+        alias: 'p',
+        type: 'number'
+      }),
+    handler: argv => {
+      const listenPort = argv.port;
+
+      if (listenPort) {
+        process.env.ISLE_DEV_PORT = listenPort;
+      }
+
+      isle({ mode: 'development', devServer: true });
+    }
   })
   .demandCommand()
   .help().argv;
