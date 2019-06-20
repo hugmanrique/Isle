@@ -93,6 +93,8 @@ const globalInstall = exec(command, npmOptions, err => {
 
   console.log(`Installing ${appDependencies.length} (direct) transitive deps`);
 
+  console.log(appDependencies);
+
   const fixArgs = ['install', '--no-save --no-package-lock'].concat(
     appDependencies
   );
