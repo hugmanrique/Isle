@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import logger from '@isle/logger';
 
-const listenPort = 4444;
+const defaultPort = 4444;
 
 /**
  * Creates a webpack `Compiler` instance with the given config.
@@ -94,6 +94,7 @@ export function runDevServer(config) {
 
   // devServer options are passed through all plugins
   const server = new WebpackDevServer(compiler, config.devServer);
+  const listenPort = config.devServer.port || defaultPort;
 
   server.listen(listenPort, 'localhost', err => {
     if (err) {
