@@ -34,10 +34,110 @@ I'm happy to say Isle meets all of the above! 😊
 
 ## Getting started
 
+You can install Isle using [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/lang/en/):
 
+```bash
+npm install --save react react-dom @isle/pages
 
+npm install --save-dev @isle/core @isle/cli
+```
 
+Optionally, add the following scripts to your `package.json` file:
 
+```json
+{
+  "scripts": {
+    "dev": "isle dev",
+    "build": "isle build"
+  }
+}
+```
+
+Finally, run `npm run dev` to start the development server and go to `http://localhost:4444`. You should now see a "Hello world!" message.
+
+## Adding routing
+
+Alright, but where's all the routing? Recall you installed `@isle/pages`, but the `src/App.js` makes no mention of it.
+
+Well, Isle doesn't provide a default routing library. Instead, we give you the liberty to choose whatever you prefer (as long as it uses the History API). We recommend Reach Router (although that [might soon change](https://reacttraining.com/blog/reach-react-router-future/)). To install it, run
+
+```bash
+npm install --save @reach/router
+```
+
+Let's create a `Home` and a `Contact` page, shall we? Remember Isle lets you put your pages wherever you want, but `src/pages` seems like a good choice. Populate `src/pages/Home.js`:
+
+```js
+import React from 'react';
+import { Link } from '@reach/router';
+
+export default function Home() {
+  return (
+    <main>
+      <h1>Home page</h1>
+      <p>Hello world!</p>
+      <Link to="/contact">Contact page</Link>
+    </main>
+  );
+}
+```
+
+Similarly, create a `Contact` component in `src/pages/Contact.js`:
+
+```js
+import React from 'react';
+import { Link } from '@reach/router';
+
+export default function Contact() {
+  return (
+    <main>
+      <h1>Contact me</h1>
+      <p>This should be a contact form.</p>
+      <Link to="/">Go back home</Link>
+    </main>
+  );
+}
+```
+
+You can use hooks for data loading ([Suspense for Data Fetching](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html) is coming soon!), state management, and much more.
+
+Now, let's create our app primary router. Go to your `App.js` file and change the default component by:
+
+```js
+import React, { Suspense } from 'react';
+import { Router } from '@reach/router';
+
+import { lazyPage as lazy } from '@isle/pages';
+
+// You can import a component from another file
+const Loading = () => <p>Loading...</p>;
+
+const Home = lazy(() => import('./pages/Home'));
+const Contact = lazy(() => import('./pages/Contact'));
+
+export default function App() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <Router>
+        <Home path="/" />
+        <Contact path="/contact" />
+      </Router>
+    </Suspense>
+  );
+}
+```
+
+We first declare a loading indicator component (`Loading`), which will be shown as a fallback while transitioning from one page to the other. This is done using React's `Suspense` component.
+
+Next, we declare each page component using the `lazyPage` function. It takes a function which returns a dynamic import `Promise`. This is one of Isle's key components. While bundling, it creates a separate [chunk](https://webpack.js.org/guides/code-splitting/) for each page (thanks to webpack's code splitting). Next, it handles lazy loading (via `React.lazy`), and prevents initial page loading flashes by rendering the prerendered HTML until the dynamically imported chunk is ready.
+
+Advanced users can use [magic comments](https://webpack.js.org/api/module-methods/#magic-comments) to change webpack's code splitting behavior.
+
+The router structure varies from library to library. Isle respects all routing capabilities such as [nested component paths](https://reach.tech/router/tutorial/06-nesting), [URL parameters](https://reach.tech/router/tutorial/05-url-parameters) (due to their dynamic nature, these routes will not be prerendered though), or [imperative navigation](https://reach.tech/router/tutorial/09-navigate).
+
+## License
+
+Isle is licensed under the [MIT License](LICENSE).
 
 <!--
 Isle focuses on:
